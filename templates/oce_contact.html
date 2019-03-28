@@ -1,0 +1,93 @@
+﻿## -*- coding: utf-8 -*-
+<%inherit file="base/oce_base.html"/>
+<%namespace name='static' file="base/oce_static_content.html"/>
+<%!
+    from django.core.urlresolvers import reverse
+    from cms.utils import list_url_by_args
+%>
+
+<%block name="main">
+<!--头部-->
+    <%include file="base/oce_head.html"></%include>
+<!--头部-->
+<!--幻灯片-->
+<div class="banner_s"><img src="${static.url('images/upload/lianxi.jpg')}" alt=""/></div>
+<div class="pst_bg">
+    <div class="pst">
+        您当前的位置：
+        <a href="">联系我们</a>
+    </div>
+</div>
+
+<div class="scd clearfix">
+    <div class="scd_l">
+        <div class="s_name">
+            <img src="${static.url('images/t4.png')}" width="150" height="48" alt=""/>
+            <i>&nbsp;</i>
+        </div>
+        <ul class="s_nav">
+            <li class="now"><a href="${list_url_by_args(reverse('cms'), slug='lian-xi-liu-bo')}">联系我们</a></li>
+            <li><a href="${list_url_by_args(reverse('cms'), slug='ke-hu-liu-yan')}">客户留言</a></li>
+        </ul>
+    </div>
+    <div class="scd_r">
+        <div class="r_name"><span>联系我们</span></div>
+        <div class="cotnact">
+            <h1>武汉六博光电技术有限责任公司</h1>
+            <dl class="clearfix">
+      ##        <dt><img src="${static.url('images/upload/pic10.jpg')}" alt=""/></dt>
+                <dd>
+                    <b>武汉总公司</b>
+                    <p>公司： 武汉六博光电技术有限责任公司</p>
+                    <p>地址： 武汉市武昌区小洪山东区34号湖北省科技创业大厦A座2401-5</p>
+        <p>手机： 17371430517</p>  
+                    <p>电话： 027-87893258—2401</p>
+                    <p>传真： 027-87893258—2401</p>
+                    <p>邮箱： sdfso@wh-fso.com  </p>
+                </dd>
+            </dl>
+            <div class="space_hx">&nbsp;</div>
+            <div class="contact_map">
+                <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=6d88e38ab7f507ee19cec46443691d95"></script>
+                <div id="map"></div>
+                <script type="text/javascript">
+
+                    // 百度地图API功能
+                    var map = new BMap.Map("map");    // 创建Map实例
+                    var point = new BMap.Point(114.361931,30.542772);   //坐标拾取网址：http://api.map.baidu.com/lbsapi/getpoint/index.html
+
+                    var marker = new BMap.Marker(point);  // 创建标注
+                    var mapStyle = {style:"normal"};
+                    map.setMapStyle(mapStyle);
+
+                    var top_left_control = new BMap.ScaleControl({anchor: BMAP_ANCHOR_TOP_LEFT});// 左上角，添加比例尺
+                    var top_left_navigation = new BMap.NavigationControl();  //左上角，添加默认缩放平移控件
+
+                    marker.setAnimation(BMAP_ANIMATION_BOUNCE); //跳动的动画
+                    map.centerAndZoom(point, 18);  // 初始化地图,设置中心点坐标和地图级别
+                    map.addOverlay(marker);               // 将标注添加到地图中
+                    map.enableScrollWheelZoom(true);     //开启鼠标滚轮缩放
+                    map.addControl(new BMap.MapTypeControl());   //添加地图类型控件
+                    map.setCurrentCity("武汉");          // 设置地图显示的城市 此项是必须设置的
+
+
+
+                    window.onresize = function(){
+
+                        map.centerAndZoom(point, 15);  // 重置窗口的时候 重新获取中心点坐标的位置
+
+                    }
+
+                map.addControl(top_left_control);
+                map.addControl(top_left_navigation);
+                /*map.addControl(top_right_navigation);  */
+                </script>
+            </div>
+        </div>
+    </div>
+</div>
+<!--底部-->
+    <%include file="base/oce_foot.html"></%include>
+<!--底部-->
+</%block>
+

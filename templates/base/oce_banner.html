@@ -1,0 +1,36 @@
+## -*- coding: utf-8 -*-
+<%namespace name='static' file="oce_static_content.html"/>
+
+<%!
+    from django.core.urlresolvers import reverse
+%>
+<script language="javascript">
+    $(function(){
+        $('#owl-demo').owlCarousel({
+            items: 1,
+            navigation: true,
+            navigationText: ["上一个","下一个"],
+            autoPlay: true,
+            stopOnHover: true
+        }).hover(function(){
+            $('.owl-buttons').show();
+        }, function(){
+            $('.owl-buttons').hide();
+        });
+    });
+</script>
+
+<div id="banner" class="banner">
+    <div id="owl-demo" class="owl-carousel">
+        <a class="item" target="_blank" href="" >
+            <img src="${static.url('images/upload/index1.jpg')}" alt="">
+        </a>
+        <a class="item" target="_blank" href="" >
+            <img src="${static.url('images/upload/index2.jpg')}" alt="">
+        </a>
+        <a class="item" target="_blank" href="" >
+            <img src="${static.url('images/upload/index3.jpg')}" alt="">
+        </a>
+    </div>
+</div>
+<div class="space_hx">&nbsp;</div>

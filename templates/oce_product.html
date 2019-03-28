@@ -1,0 +1,71 @@
+## -*- coding: utf-8 -*-
+<%inherit file="base/oce_base.html"/>
+<%namespace name='static' file="base/oce_static_content.html"/>
+<%!
+    from django.core.urlresolvers import reverse
+    from cms.utils import list_url_by_args
+    from cms.utils import get_format_datetime
+%>
+
+<%block name="main">
+<!--头部-->
+    <%include file="base/oce_head.html"></%include>
+<!--头部-->
+<!--幻灯片-->
+<div class="banner_s"><img src="${static.url('images/upload/banner_a.jpg')}" alt=""/></div>
+<div class="pst_bg">
+    <div class="pst">
+        您当前的位置：
+        <a href="">产品</a>>
+        <a href="">推介产品</a>
+    </div>
+</div>
+<div class="scd clearfix">
+    <div class="scd_l">
+        <div class="s_name">
+            <img src="${static.url('images/t1.png')}" width="133" height="48" alt=""/>
+            <i>&nbsp;</i>
+        </div>
+        <ul class="s_nav">
+            <li class="now"><a href="${list_url_by_args(reverse('cms'), slug='zhu-ying-tui-jian-chan-pin')}">推荐产品</a></li>
+            <li><a href="${list_url_by_args(reverse('cms'), slug='ding-zhi-hua-chan-pin')}">定制化产品</a></li>
+            <li><a href="${list_url_by_args(reverse('cms'), slug='biao-zhun-hua-chan-pin')}">标准化产品</a></li>
+        </ul>
+    </div>
+    <div class="scd_r">
+        <div class="r_name"><span>推介产品</span></div>
+        <div class="pro clearfix">
+            % for i in data:
+            <dl class="clearfix">
+                <dt><a href=""><img src="${i.get('cover')}" alt=""/></a></dt>
+                <dd>
+                    <div class="title"><a href="">${i.get('title')}</a></div>
+                    <div class="des">${i.get('content')}......</div>
+                     <a href="${list_url_by_args(reverse('cms_detail'), slug=i.get('slug'))}" class="more">+查看详情</a>
+                </dd>
+            </dl>
+            % endfor
+        </div>
+         <div class="space_hx">&nbsp;</div>
+            <div class="pages">
+                %if data.has_previous():
+                    <a href="${list_url_by_args(reverse('cms'), slug='zhu-ying-tui-jian-chan-pin', current_page=data.previous_page_number())}" class="prev">上一页</a>
+                %endif
+                %for i in range(1,data.paginator.num_pages+1):
+                    %if data.number ==i:
+                        <a href="#" class="now">${i}</a>
+                    %else:
+                        <a href="${list_url_by_args(reverse('cms'), slug='zhu-ying-tui-jian-chan-pin', current_page=i)}">${i}</a>
+                    %endif
+                %endfor
+                %if data.has_next():
+                    <a href="${list_url_by_args(reverse('cms'), slug='zhu-ying-tui-jian-chan-pin', current_page= data.next_page_number())}" class="prev">下一页</a>
+                %endif
+            </div>
+        </div>
+    </div>
+</div>
+<!--底部-->
+    <%include file="base/oce_foot.html"></%include>
+<!--底部-->
+</%block>

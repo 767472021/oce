@@ -1,0 +1,153 @@
+﻿## -*- coding: utf-8 -*-
+
+<%namespace name='static' file="oce_static_content.html"/>
+<%!
+    from django.core.urlresolvers import reverse
+    from cms.utils import list_url_by_args
+%>
+
+<div class="header">
+    <div class="t_bg">
+        <div class="top">
+            <div class="lang">
+                <a href="" class="on">中 文</a>|
+                <a href="">English</a>
+            </div>
+            <div class="search">
+                <input name="" type="text" placeholder="请输入关键字">
+                <input name="" type="submit" value="">
+            </div>
+        </div>
+    </div>
+    <div class="head clearfix">
+        <div class="logo"><a href="/"><img src="${static.url('images/2.png')}" alt=""/></a></div>
+        <div class="nav_m">
+            <div class="n_icon">导航栏</div>
+            <ul class="nav clearfix">
+                <li class="now"><a href="/">首页</a></li>
+                <li>
+                    <a href="${list_url_by_args(reverse('cms_detail'), slug='gong-si-jian-jie')}">关于我们</a>
+                    <div class="er">
+                        <div class="er_m">
+                            <i>&nbsp;</i>
+                            <ul>
+                                <li><a href="${list_url_by_args(reverse('cms_detail'), slug='gong-si-jian-jie')}">公司简介</a></li>
+                                <li><a href="${list_url_by_args(reverse('cms_detail'), slug='qi-ye-wen-hua')}">企业文化</a></li>
+                                <li><a href="${list_url_by_args(reverse('cms_detail'), slug='gong-si-li-nian')}">公司理念</a></li>
+                                <li><a href="${list_url_by_args(reverse('cms_detail'), slug='he-zuo-huo-ban')}">合作伙伴</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <a href="${list_url_by_args(reverse('cms'), slug='zhu-ying-tui-jian-chan-pin')}">产品中心</a>
+                    <div class="er">
+                        <div class="er_m">
+                            <i>&nbsp;</i>
+                            <ul>
+                                <li><a href="${list_url_by_args(reverse('cms'), slug='ding-zhi-hua-chan-pin')}">定制化产品</a></li>
+                                <li><a href="${list_url_by_args(reverse('cms'), slug='biao-zhun-hua-chan-pin')}">标准化产品</a></li>
+                                <li><a href="${list_url_by_args(reverse('cms'), slug='zhu-ying-tui-jian-chan-pin')}">主营产品推荐</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <a href="${list_url_by_args(reverse('cms'), slug='qi-ye-xin-wen')}">新闻中心</a>
+                    <div class="er">
+                        <div class="er_m">
+                            <i>&nbsp;</i>
+                            <ul>
+                                <li><a href="${list_url_by_args(reverse('cms'), slug='qi-ye-xin-wen')}">企业新闻</a></li>
+                                <li><a href="${list_url_by_args(reverse('cms'), slug='qi-ye-rong-yu')}">企业荣誉</a></li>
+                                <li><a href="${list_url_by_args(reverse('cms'), slug='hang-ye-dong-tai')}">行业动态</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <a href="${list_url_by_args(reverse('cms'), slug='ke-hu-an-li')}">客户服务</a>
+                    <div class="er">
+                        <div class="er_m">
+                            <i>&nbsp;</i>
+                            <ul>
+                                <li><a href="${list_url_by_args(reverse('cms'), slug='ke-hu-an-li')}">客户案例</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <a href="${list_url_by_args(reverse('cms'), slug='shi-chang-bu')}">人才招聘</a>
+                    <div class="er">
+                        <div class="er_m">
+                            <i>&nbsp;</i>
+                            <ul>
+                                <li><a href="${list_url_by_args(reverse('cms'), slug='shi-chang-bu')}">市场部</a></li>
+                                <li><a href="${list_url_by_args(reverse('cms'), slug='yan-fa-bu')}">研发部</a></li>
+                                <li><a href="${list_url_by_args(reverse('cms'), slug='jing-ying-bu')}">经营部</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <a href="${list_url_by_args(reverse('cms'), slug='lian-xi-liu-bo')}">联系我们</a>
+                    <div class="er">
+                        <div class="er_m">
+                            <i>&nbsp;</i>
+                            <ul>
+                                <li><a href="${list_url_by_args(reverse('cms'), slug='lian-xi-liu-bo')}">联系我们</a></li>
+                                <li><a href="${list_url_by_args(reverse('cms'), slug='ke-hu-liu-yan')}">客户留言</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+    <!--右侧悬浮开始-->
+    <div id="f_right">
+        <div id="kf_list">
+            <div class="f_right_top"><span>在线咨询</span><i id="closebtn" class="fa fa-times"></i></div>
+            <div class="f_right_ul">
+                <div class="ul_list">
+                    <p align="center">咨询电话：<br /><b>027-68758020</b></p>
+                    <p align="center"><img src="${static.url('images/wx.jpg')}" alt=""/></p>
+                    <p align="center">关注微信公众号</p>
+                    <p align="center"><a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=2753341164&site=qq&menu=yes"><img border="0" src="http://wpa.qq.com/pa?p=2:2753341164:51" alt="点击这里给我发消息" title="点击这里给我发消息"/></a></p>
+                </div>
+            </div>
+            <div class="f_right_bot"></div>
+        </div>
+##        <div id="r_btn">联系我们</div>
+    </div>
+    <!--右侧悬浮结束-->
+    <script type="text/javascript">
+        //右侧悬浮客服
+        window.onload = window.onresize = window.onscroll = function () {
+            var oBox = document.getElementById("f_right");
+            var oMenu = document.getElementById("kf_list");
+            var iScrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+            setTimeout(function () {
+                clearInterval(oBox.timer);
+                var iTop = parseInt((document.documentElement.clientHeight - oBox.offsetHeight) / 2) + iScrollTop;
+                oBox.timer = setInterval(function () {
+                    var iSpeed = (iTop - oBox.offsetTop) / 8;
+                    iSpeed = iSpeed > 0 ? Math.ceil(iSpeed) : Math.floor(iSpeed);
+                    oBox.offsetTop == iTop ? clearInterval(oBox.timer) : (oBox.style.top = oBox.offsetTop + iSpeed + "px");
+                }, 30)
+            }, 100)
+        };
+        $(document).ready(function () {
+            $("#closebtn").click(function () {
+                $("#kf_list").hide();
+            });
+            $("#r_btn").click(function () {
+                $("#kf_list").toggle();
+            });
+        });
+    </script>
+
+
+</div>

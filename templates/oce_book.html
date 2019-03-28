@@ -1,0 +1,77 @@
+## -*- coding: utf-8 -*-
+<%inherit file="base/oce_base.html"/>
+<%namespace name='static' file="base/oce_static_content.html"/>
+<%!
+    from django.core.urlresolvers import reverse
+    from cms.utils import list_url_by_args
+%>
+
+<%block name="main">
+<!--头部-->
+    <%include file="base/oce_head.html"></%include>
+<!--头部-->
+<!--幻灯片-->
+<div class="banner_s"><img src="${static.url('images/upload/lianxi.jpg')}" alt=""/></div>
+<div class="pst_bg">
+    <div class="pst">
+        您当前的位置：
+        <a href="">联系我们</a>>
+        <a href="">在线留言</a>
+    </div>
+</div>
+<div class="scd clearfix">
+    <div class="scd_l">
+        <div class="s_name">
+            <img src="${static.url('images/t4.png')}" width="150" height="48" alt=""/>
+            <i>&nbsp;</i>
+        </div>
+        <ul class="s_nav">
+            <li><a href="${list_url_by_args(reverse('cms'), slug='lian-xi-liu-bo')}">联系我们</a></li>
+            <li class="now"><a href="${list_url_by_args(reverse('cms'), slug='ke-hu-liu-yan')}">客户留言</a></li>
+        </ul>
+    </div>
+    <div class="scd_r">
+        <div class="r_name"><span>客户留言</span></div>
+        <div class="book_m clearfix">
+            <ul>
+                <li>
+                    <span class="name">姓名：</span>
+                    <input name="nickname" type="text" id="nickname">
+                </li>
+                <li>
+                    <span class="name">联系电话：</span>
+                    <input name="tel" type="text" id="tel">
+                </li>
+                <li>
+                    <span class="name">公司名称：</span>
+                    <input name="company" type="text" id="company">
+                </li>
+                <li>
+                    <span class="name">联系邮箱：</span>
+                    <input name="email" type="text" id="email">
+                </li>
+                <li>
+                    <span class="name">主题：</span>
+                    <input name="title" type="text" id="title">
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <span class="name">留言内容：<i>(*必填)</i></span>
+                    <textarea name="content" cols="" rows="" id="content"></textarea>
+                </li>
+                <li >
+                    <span class="name" >&nbsp;</span>
+                    <input name="" type="submit" value="发送" >
+                    <h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;为了方便您更快得到回复，欢迎直接电话联系！</h5>
+
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</div>
+<!--底部-->
+    <%include file="base/oce_foot.html"></%include>
+<!--底部-->
+</%block>

@@ -1,0 +1,53 @@
+## -*- coding: utf-8 -*-
+<%inherit file="base/oce_base.html"/>
+<%namespace name='static' file="base/oce_static_content.html"/>
+<%!
+    from django.core.urlresolvers import reverse
+    from cms.utils import list_url_by_args
+%>
+
+<%block name="main">
+<!--头部-->
+    <%include file="base/oce_head.html"></%include>
+<!--头部-->
+<!--幻灯片-->
+<div class="banner_s"><img src="${static.url('images/upload/hezuo.jpg')}" alt=""/></div>
+<div class="pst_bg">
+	<div class="pst">
+    	您当前的位置：
+        <a href="">客户服务</a>>
+        <a href="">客户案例</a>
+    </div>
+</div>
+<div class="scd clearfix">
+	<div class="scd_l">
+    	<div class="s_name">
+        	<img src="${static.url('images/t3.png')}" width="134" height="48" alt=""/>
+            <i>&nbsp;</i>
+        </div>
+        <ul class="s_nav">
+        	<li class="now"><a href="">客户案例</a></li>
+        </ul>
+    </div>
+    <div class="scd_r">
+    	<div class="r_name"><span>客户案例</span></div>
+        <div class="friend clearfix">
+        	<ul class="clearfix">
+            	<li><a href=""><img src="${static.url('images/upload/pic9.jpg')}" alt=""/></a></li>
+                <li><a href=""><img src="${static.url('images/upload/pic9.jpg')}" alt=""/></a></li>
+                <li><a href=""><img src="${static.url('images/upload/pic9.jpg')}" alt=""/></a></li>
+                <li><a href=""><img src="${static.url('images/upload/pic9.jpg')}" alt=""/></a></li>
+                <li><a href=""><img src="${static.url('images/upload/pic9.jpg')}" alt=""/></a></li>
+                <li><a href=""><img src="${static.url('images/upload/pic9.jpg')}" alt=""/></a></li>
+                <li><a href=""><img src="${static.url('images/upload/pic9.jpg')}" alt=""/></a></li>
+                <li><a href=""><img src="${static.url('images/upload/pic9.jpg')}" alt=""/></a></li>
+                <li><a href=""><img src="${static.url('images/upload/pic9.jpg')}" alt=""/></a></li>
+                <li><a href=""><img src="${static.url('images/upload/pic9.jpg')}" alt=""/></a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!--底部-->
+    <%include file="base/oce_foot.html"></%include>
+<!--底部-->
+</%block>

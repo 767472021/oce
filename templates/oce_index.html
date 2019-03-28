@@ -1,0 +1,148 @@
+﻿## -*- coding: utf-8 -*-
+<%inherit file="base/oce_base.html"/>
+<%namespace name='static' file="base/oce_static_content.html"/>
+<%!
+    from django.core.urlresolvers import reverse
+    from cms.utils import list_url_by_args
+    from cms.utils import get_format_datetime
+%>
+
+<%block name="main">
+<!--头部-->
+    <%include file="base/oce_head.html"></%include>
+<!--头部-->
+<!--幻灯片-->
+    <%include file="base/oce_banner.html"></%include>
+<!--幻灯片-->
+<div class="i_m">
+	<div class="i_name"><img src="${static.url('images/n1.png')}" width="171" height="59" alt=""/></div>
+    <ul class="i_ma clearfix">
+
+    	<li>
+        	<div class="title">
+            	<img src="${static.url('images/icon3.jpg')}" alt=""/>
+                <span>公司介绍</span>
+            </div>
+            <div class="tu">
+                <video width="300" height="200" controls="controls" autoplay >
+                    <source src="${static.url('images/index.mp4')}" type="video/mp4">
+                </video>
+            </div>
+##             <div class="des">中华映管公司为世界最重要的显示器制造厂,致力于提供高
+## 质量专业显示器, 拥有强力的研发后台......</div>
+## 			<a href="/cms/about/" class="more">公司介绍</a>
+        </li>
+        <li>
+        	<div class="title">
+            	<img src="${static.url('images/icon4.jpg')}" alt=""/>
+                <span>移动光通信</span>
+            </div>
+            <div class="tu"><a href=""><img src="${static.url('images/upload/pic2.jpg')}" alt=""/></a></div>
+            <div class="des">六博光电专注于激光通信产品的研发、生产与销售。了解过我们的产品，......</div>
+			<a href="${list_url_by_args(reverse('cms'), slug='zhu-ying-tui-jian-chan-pin')}" class="more">+MORE</a>
+        </li>
+        <li>
+        	<div class="title">
+            	<img src="${static.url('images/icon5.jpg')}" alt=""/>
+                <span>无线光通信</span>
+            </div>
+            <div class="tu"><a href=""><img src="${static.url('images/upload/pic3.jpg')}" alt=""/></a></div>
+            <div class="des">六博光电专注于激光通信产品的研发、生产与销售。了解过我们的产品，......</div>
+			<a href="${list_url_by_args(reverse('cms'), slug='zhu-ying-tui-jian-chan-pin')}" class="more">+MORE</a>
+        </li>
+    </ul>
+</div>
+<div class="space_hx">&nbsp;</div>
+<div class="hui_bg">
+	<div class="i_m clearfix">
+    	<div class="i_ml">
+        	<div class="i_title">
+            	<a href=""><img src="${static.url('images/n2.jpg')}" width="139" height="22" alt=""/></a>
+                <div class="line">&nbsp;</div>
+                <a href="${list_url_by_args(reverse('cms'), slug='xin-wen-zhong-xin')}" class="more">+MORE</a>
+            </div>
+            <div class="i_mb">
+                % for new in qiyexinwen[:3]:
+            	<dl class="clearfix">
+                	<dt><a href="${list_url_by_args(reverse('cms_detail'), slug=new.slug)}"><img src="/media/${new.cover}" alt=""/></a></dt>
+                    <dd>
+                    	<div class="title"><a href="${list_url_by_args(reverse('cms_detail'), slug=new.slug)}">${new.title}</a></div>
+                        <div class="des">${new.content}......</div>
+                        <div class="time">
+                            ${get_format_datetime(new.created)}
+                        </div>
+                    </dd>
+                </dl>
+                % endfor
+            </div>
+        </div>
+        <div class="i_mr">
+        	<div class="i_title">
+            	<a href=""><img src="${static.url('images/n3.jpg')}" width="168" height="22" alt=""/></a>
+                <div class="line">&nbsp;</div>
+                <a href="${list_url_by_args(reverse('cms'), slug='zhu-ying-tui-jian-chan-pin')}" class="more">+MORE</a>
+            </div>
+
+            <dl class="i_mc clearfix">
+                <dt><a href=""><dy><img id='image-0' src="/media/${products[0].cover}" alt=""/></dy></a></dt>
+                <dd>
+
+                	<ul>
+                        % for product in products[:4]:
+
+                    	<li >
+
+
+                        	<i>&nbsp;</i>
+                        	<div class="title"><a href="${list_url_by_args(reverse('cms_detail'), slug=product.slug)}">${product.title}</a></div>
+
+                            <img  id='image-1' src="/media/${product.cover}" alt=""/>
+
+
+                        </li>
+                        % endfor
+                    </ul>
+
+                </dd>
+            </dl>
+
+            <div class="space_hx">&nbsp;</div>
+            <div class="i_title">
+            	<a href=""><img src="${static.url('images/n5.jpg')}" width="151" height="22" alt=""/></a>
+                <div class="line">&nbsp;</div>
+                <a href="${list_url_by_args(reverse('cms'), slug='qi-ye-rong-yu')}" class="more">+MORE</a>
+            </div>
+
+
+            <dl class="i_mc clearfix">
+                <dt><a href=""><dx><img id='image-2' src="/media/${qiyerongyu[0].cover}" alt=""/></dx></a></dt>
+                <dd>
+
+                	<ul>
+                        % for honor in qiyerongyu[:4]:
+
+                    	<li>
+                            <dx>
+                        	<i>&nbsp;</i>
+                        	<div class="title"><a href="${list_url_by_args(reverse('cms_detail'), slug=honor.slug)}">${honor.title}</a></div>
+
+                            <img  id='image-3' src="/media/${honor.cover}" alt=""/>
+
+
+                            </dx>
+                        </li>
+                        % endfor
+                    </ul>
+
+                </dd>
+            </dl>
+
+
+        </div>
+    </div>
+</div>
+
+<!--底部-->
+    <%include file="base/oce_foot.html"></%include>
+<!--底部-->
+</%block>

@@ -1,0 +1,52 @@
+## -*- coding: utf-8 -*-
+<%inherit file="base/oce_base.html"/>
+<%namespace name='static' file="base/oce_static_content.html"/>
+<%!
+    from django.core.urlresolvers import reverse
+    from cms.utils import list_url_by_args
+%>
+
+<%block name="main">
+<!--头部-->
+    <%include file="base/oce_head.html"></%include>
+<!--头部-->
+<!--幻灯片-->
+<div class="banner_s"><img src="${static.url('images/upload/news.jpg')}" alt=""/></div>
+<div class="pst_bg">
+    <div class="pst">
+        您当前的位置【】：
+        <a href=""></a>
+    </div>
+</div>
+<div class="scd clearfix">
+    <div class="scd_l">
+        <div class="s_name">
+            <img src="${static.url('images/t6.png')}" width="138" height="48" alt=""/>
+            <i>&nbsp;</i>
+        </div>
+        <ul class="s_nav">
+            % if context.get('slug') == 'gong-si-jian-jie' or context.get('slug') == 'qi-ye-wen-hua' or context.get('slug') == 'gong-si-li-nian' or context.get('slug') == 'he-zuo-huo-ban':
+                <li><a href="${list_url_by_args(reverse('cms_detail'), slug='gong-si-jian-jie')}">公司简介</a></li>
+                <li><a href="${list_url_by_args(reverse('cms_detail'), slug='qi-ye-wen-hua')}">企业文化</a></li>
+                <li><a href="${list_url_by_args(reverse('cms_detail'), slug='gong-si-li-nian')}">公司理念</a></li>
+                <li><a href="${list_url_by_args(reverse('cms_detail'), slug='he-zuo-huo-ban')}">合作伙伴</a></li>
+            %endif
+        </ul>
+    </div>
+
+    <div class="scd_r">
+        <div class="r_name"><span>详情</span></div>
+        <div class="cotnact">
+            <h1>${new.title}</h1>
+            <p></p>
+            <em style="text-indent:2em;">${new.content}</em>
+
+
+        </div>
+    </div>
+
+</div>
+<!--底部-->
+    <%include file="base/oce_foot.html"></%include>
+<!--底部-->
+</%block>

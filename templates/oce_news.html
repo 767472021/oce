@@ -1,0 +1,86 @@
+## -*- coding: utf-8 -*-
+<%inherit file="base/oce_base.html"/>
+<%namespace name='static' file="base/oce_static_content.html"/>
+<%!
+    from django.core.urlresolvers import reverse
+    from cms.utils import list_url_by_args
+%>
+
+<%block name="main">
+<!--头部-->
+    <%include file="base/oce_head.html"></%include>
+<!--头部-->
+<!--幻灯片-->
+<div class="banner_s"><img src="${static.url('images/upload/news.jpg')}" alt=""/></div>
+<div class="pst_bg">
+    <div class="pst">
+        您当前的位置【测试测试】：
+        <a href="">企业新闻</a>
+##         % for i in data:
+            ## <!--<div>${i.get('title')}, ${i.get('created')}, ${i.get('content')}</div>-->
+##             <a href="${list_url_by_args(reverse('cms_detail'), slug=i.get('slug'))}" >${i.get('title')}</a>
+##         % endfor
+    </div>
+</div>
+<div class="scd clearfix">
+    <div class="scd_l">
+        <div class="s_name">
+            <img src="${static.url('images/t6.png')}" width="138" height="48" alt=""/>
+            <i>&nbsp;</i>
+        </div>
+        <ul class="s_nav">
+            % if context.get('slug') == 'qi-ye-xin-wen' or context.get('slug') == 'hang-ye-dong-tai' or context.get('slug') == 'qi-ye-rong-yu':
+                <li><a href="${list_url_by_args(reverse('cms'), slug='qi-ye-xin-wen')}">企业新闻</a></li>
+                <li><a href="${list_url_by_args(reverse('cms'), slug='qi-ye-rong-yu')}">企业荣誉</a></li>
+                <li><a href="${list_url_by_args(reverse('cms'), slug='hang-ye-dong-tai')}">行业动态</a></li>
+            % elif context.get('slug') == 'gong-si-jian-jie' or context.get('slug') == 'qi-ye-wen-hua' or context.get('slug') == 'gong-si-li-nian' or context.get('slug') == 'he-zuo-huo-ban':
+                <li><a href="${list_url_by_args(reverse('cms_detail'), slug='gong-si-jian-jie')}">公司简介</a></li>
+                <li><a href="${list_url_by_args(reverse('cms_detail'), slug='qi-ye-wen-hua')}">企业文化</a></li>
+                <li><a href="${list_url_by_args(reverse('cms_detail'), slug='gong-si-li-nian')}">公司理念</a></li>
+                <li><a href="${list_url_by_args(reverse('cms_detail'), slug='he-zuo-huo-ban')}">合作伙伴</a></li>
+            %endif
+        </ul>
+    </div>
+    <div class="scd_r">
+        <div class="r_name"><span>企业新闻</span></div>
+        <div class="news">
+            % for item in data:
+            <dl class="clearfix">
+
+                <dt><a href=""><img src="${item.get('cover')}" alt=""/></a></dt>
+                <dd>
+                    <div class="title">
+                        <a href="">
+                            <p>${item.get('title')}</p>
+                            <em>${item.get('created')}</em>
+                        </a>
+                    </div>
+                    <div class="des">${item.get('content')}.....</div>
+                    <a href="${list_url_by_args(reverse('cms_detail'), slug=item.get('slug'))}"  class="more">+ 查看详情</a>
+                </dd>
+            </dl>
+            % endfor
+
+            <div class="space_hx">&nbsp;</div>
+            <div class="pages">
+                %if data.has_previous():
+                    <a href="${list_url_by_args(reverse('cms'), slug='qi-ye-xin-wen', current_page=data.previous_page_number())}" class="prev">上一页</a>
+                %endif
+                %for i in range(1,data.paginator.num_pages+1):
+                    %if data.number ==i:
+                        <a href="#" class="now">${i}</a>
+                    %else:
+                        <a href="${list_url_by_args(reverse('cms'), slug='qi-ye-xin-wen', current_page=i)}">${i}</a>
+                    %endif
+                %endfor
+                %if data.has_next():
+                    <a href="${list_url_by_args(reverse('cms'), slug='qi-ye-xin-wen', current_page= data.next_page_number())}" class="prev">下一页</a>
+                %endif
+            </div>
+        </div>
+    </div>
+</div>
+<!--底部-->
+    <%include file="base/oce_foot.html"></%include>
+<!--底部-->
+</%block>
